@@ -19,7 +19,7 @@ width:80%;
 max-width:350px;
 margin-top:20px;
 border-radius:10px;
-box-shadow:0 0 20px #f5c518;
+transition:0.5s;
 }
 
 h1{
@@ -42,41 +42,52 @@ let interest=params.get("interest");
 
 let movie="";
 let image="";
+let glow="";
+
+// 🎬 Movie Logic + Dynamic Border Glow
 
 if(interest==="space"){
 movie="Interstellar 🌌";
 image="images/interstellar.jpg";
+glow="0 0 25px #9ecbff";
 }
 
 else if(interest==="strategy"){
 movie="The Prestige 🎩";
 image="images/prestige.jpg";
+glow="0 0 25px #cfae5b";
 }
 
 else if(interest==="leadership"){
 movie="Oppenheimer 💣";
 image="images/oppenheimer.jpg";
+glow="0 0 25px #f5c518";
 }
 
 else if(interest==="logic"){
 movie="Tenet ⏳";
 image="images/tenet.jpg";
+glow="0 0 25px black";
 }
 
 else if(interest==="survival"){
 movie="Dunkirk ⚓";
 image="images/dunkirk.jpg";
+glow="0 0 25px #2f6fa5";
 }
 
 else if(interest==="dreams"){
 movie="Inception 🧠";
 image="images/inception.jpg";
+glow="0 0 25px #d6d6d6";
 }
 
 document.getElementById("resultText").innerHTML =
 name + ", You Are " + movie;
 
-document.getElementById("movieImage").src=image;
+let img=document.getElementById("movieImage");
+img.src=image;
+img.style.boxShadow=glow;
 
 </script>
 
