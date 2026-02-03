@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Nolan Movie</title>
+
+<style>
+body{
+font-family: Arial;
+background:black;
+color:white;
+text-align:center;
+padding:20px;
+}
+
+img{
+width:80%;
+max-width:350px;
+margin-top:20px;
+border-radius:10px;
+box-shadow:0 0 20px #f5c518;
+}
+
+h1{
+color:#f5c518;
+}
+</style>
+</head>
+
+<body>
+
+<h1 id="resultText"></h1>
+<img id="movieImage">
+
+<script>
+
+let params=new URLSearchParams(window.location.search);
+
+let name=params.get("name");
+let interest=params.get("interest");
+
+let movie="";
+let image="";
+
+if(interest==="space"){
+movie="Interstellar 🌌";
+image="images/interstellar.jpg";
+}
+
+else if(interest==="strategy"){
+movie="The Prestige 🎩";
+image="images/prestige.jpg";
+}
+
+else if(interest==="leadership"){
+movie="Oppenheimer 💣";
+image="images/oppenheimer.jpg";
+}
+
+else if(interest==="logic"){
+movie="Tenet ⏳";
+image="images/tenet.jpg";
+}
+
+else if(interest==="survival"){
+movie="Dunkirk ⚓";
+image="images/dunkirk.jpg";
+}
+
+else if(interest==="dreams"){
+movie="Inception 🧠";
+image="images/inception.jpg";
+}
+
+document.getElementById("resultText").innerHTML =
+name + ", You Are " + movie;
+
+document.getElementById("movieImage").src=image;
+
+</script>
+
+</body>
+</html>

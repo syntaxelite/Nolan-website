@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Which Nolan Movie Are You?</title>
+
+<style>
+body{
+font-family: Arial;
+background: black;
+color: white;
+text-align:center;
+padding:20px;
+}
+
+h1{
+color:#f5c518;
+}
+
+input, select, button{
+padding:12px;
+margin:10px;
+width:90%;
+max-width:300px;
+border-radius:5px;
+border:none;
+}
+
+button{
+background:#f5c518;
+font-weight:bold;
+cursor:pointer;
+}
+
+button:hover{
+background:#e0b000;
+}
+</style>
+</head>
+
+<body>
+
+<h1>🎬 Which Christopher Nolan Movie Are You?</h1>
+
+<input type="text" id="name" placeholder="Enter your name"><br>
+
+<select id="interest">
+<option value="">Choose Your Interest</option>
+<option value="space">Space & Emotions</option>
+<option value="strategy">Strategy & Competition</option>
+<option value="leadership">Leadership & Responsibility</option>
+<option value="logic">Logic & Puzzle Solving</option>
+<option value="survival">Bravery & Survival</option>
+<option value="dreams">Creativity & Dreams</option>
+</select><br>
+
+<button onclick="goResult()">Reveal My Movie 🎬</button>
+
+<script>
+function goResult(){
+
+let name=document.getElementById("name").value;
+let interest=document.getElementById("interest").value;
+
+if(name==="" || interest===""){
+alert("Please fill details!");
+return;
+}
+
+window.location.href =
+"result.html?name="+name+"&interest="+interest;
+}
+</script>
+
+</body>
+</html>
