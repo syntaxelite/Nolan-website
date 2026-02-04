@@ -6,32 +6,66 @@
 <title>Your Nolan Movie</title>
 
 <style>
+
 body{
 font-family: Arial;
-background:black;
+background:linear-gradient(to right,#000000,#1a1a1a,#000000);
 color:white;
 text-align:center;
 padding:20px;
 }
 
+/* Movie Image */
 img{
 width:80%;
 max-width:350px;
 margin-top:20px;
-border-radius:10px;
+border-radius:12px;
 transition:0.5s;
 }
 
+/* Title */
 h1{
 color:#f5c518;
 }
+
+/* Description */
+p{
+margin-top:20px;
+font-size:18px;
+line-height:1.6;
+}
+
+/* Nolan Theme Back Button */
+.backBtn{
+margin-top:30px;
+padding:12px 25px;
+background:transparent;
+border:2px solid #f5c518;
+color:#f5c518;
+font-size:18px;
+border-radius:8px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.backBtn:hover{
+background:#f5c518;
+color:black;
+}
+
 </style>
 </head>
 
 <body>
 
 <h1 id="resultText"></h1>
+
 <img id="movieImage">
+
+<p id="movieDesc"></p>
+
+<button class="backBtn" onclick="goBack()">⬅ Back</button>
 
 <script>
 
@@ -43,51 +77,66 @@ let interest=params.get("interest");
 let movie="";
 let image="";
 let glow="";
+let description="";
 
-// 🎬 Movie Logic + Dynamic Border Glow
+// 🎬 Movie Logic + Details
 
 if(interest==="space"){
 movie="Interstellar 🌌";
 image="images/interstellar.jpg";
 glow="0 0 25px #9ecbff";
+description="A space exploration film focusing on survival of humanity, emotional bonds and black hole science.";
 }
 
 else if(interest==="strategy"){
 movie="The Prestige 🎩";
 image="images/prestige.jpg";
 glow="0 0 25px #cfae5b";
+description="A story about two rival magicians showing obsession, sacrifice and illusion.";
 }
 
 else if(interest==="leadership"){
 movie="Oppenheimer 💣";
 image="images/oppenheimer.jpg";
 glow="0 0 25px #f5c518";
+description="Based on the scientist behind the atomic bomb and explores morality and power.";
 }
 
 else if(interest==="logic"){
 movie="Tenet ⏳";
 image="images/tenet.jpg";
-glow="0 0 25px black";
+glow="0 0 25px grey";
+description="A complex action thriller about time inversion and preventing global catastrophe.";
 }
 
 else if(interest==="survival"){
 movie="Dunkirk ⚓";
 image="images/dunkirk.jpg";
 glow="0 0 25px #2f6fa5";
+description="A war survival story showing evacuation of soldiers during World War II.";
 }
 
 else if(interest==="dreams"){
 movie="Inception 🧠";
 image="images/inception.jpg";
 glow="0 0 25px #d6d6d6";
+description="A dream-within-dream thriller exploring subconscious reality.";
 }
 
+/* Display Result */
 document.getElementById("resultText").innerHTML =
 name + ", You Are " + movie;
 
 let img=document.getElementById("movieImage");
 img.src=image;
 img.style.boxShadow=glow;
+
+document.getElementById("movieDesc").innerHTML = description;
+
+/* Back Button */
+function goBack(){
+window.location.href="index.html";
+}
 
 </script>
 
